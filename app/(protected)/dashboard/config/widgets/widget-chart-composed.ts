@@ -21,7 +21,7 @@ export const widgetChartComposed: InsightExpereince<InsightsAttributes>['widgets
             refund: Math.floor(Math.random() * 100),
             date: dayjs()
               .startOf('month')
-              .subtract(length - i, 'month')
+              .subtract(6 - i, 'month')
               .valueOf(),
           };
         }),

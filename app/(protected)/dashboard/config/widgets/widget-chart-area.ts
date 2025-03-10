@@ -19,7 +19,7 @@ export const widgetChartArea: InsightExpereince<InsightsAttributes>['widgets'][n
             count: Math.floor(Math.random() * 100),
             week: dayjs()
               .startOf('week')
-              .subtract(length - i, 'week')
+              .subtract(6 - i, 'week')
               .valueOf(),
           };
         }),
