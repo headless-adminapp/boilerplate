@@ -23,6 +23,9 @@ export const appExperience: AppExperience = {
       label: 'Settings',
       icon: iconSet.Settings,
       link: '/settings',
+      onClick: () => {
+        window.location.href = '/settings';
+      },
     },
   ],
   viewCommands: commands.view,
