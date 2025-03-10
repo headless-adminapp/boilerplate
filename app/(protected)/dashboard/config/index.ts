@@ -1,0 +1,1 @@
+export { insightExpereince } from './config';
