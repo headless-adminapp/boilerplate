@@ -1,72 +1,78 @@
-import { InsightExpereince } from '@headless-adminapp/core/experience/insights';
-import { bundleLazyIcon } from '@headless-adminapp/icons-fluent/lazyIcon';
+import { InsightConfig } from '@headless-adminapp/core/experience/insights';
 import dayjs from 'dayjs';
 import { CustomWidget } from './CustomWidget';
 import { InsightsAttributes, attributes } from './attributes';
-import { widgetChartArea } from './widgets/widget-chart-area';
-import { widgetChartBar } from './widgets/widget-chart-bar';
-import { widgetChartPie } from './widgets/widget-chart-pie';
-import { widgetGrid } from './widgets/widget-grid';
-import { widgetChartLine } from './widgets/widget-chart-line';
-import { widgetChartComposed } from './widgets/widget-chart-composed';
-import { widgetChartScatter } from './widgets/widget-chart-scatter';
-import { widgetChartRadar } from './widgets/widget-chart-radar';
-import { widgetChartOhlc } from './widgets/widget-chart-ohlc';
+import { WidgetChartLine } from './widgets/WidgetChartLine';
+import { WidgetChartArea } from './widgets/WidgetChartArea';
+import { WidgetChartBar } from './widgets/WidgetChartBar';
+import { WidgetChartComposed } from './widgets/WidgetChartComposed';
+import { WidgetChartScatter } from './widgets/WidgetChartScatter';
+import { WidgetChartPie } from './widgets/WidgetChartPie';
+import { WidgetChartRadar } from './widgets/WidgetChartRadar';
+import { WidgetChartOhlc } from './widgets/WidgetChartOhlc';
 
-export const insightExpereince: InsightExpereince<InsightsAttributes> = {
-  id: 'dashboard',
+export const config: InsightConfig<InsightsAttributes> = {
   title: 'Dashboard',
   subtitle: 'Dashboard for insights',
-  commands: [
-    {
-      type: 'button',
-      Icon: bundleLazyIcon(
-        'ArrowCounterclockwise24Regular',
-        'ArrowCounterclockwise24Regular'
-      ),
-      text: 'Refresh',
-      onClick: (context) => {
-        context.queryClient.invalidateQueries({
-          queryKey: ['insights'],
-        });
-      },
-    },
-  ],
-  attributes,
-  defaultData: {
+  filterAttributes: attributes,
+  defaultFilter: {
     from: dayjs().startOf('week').subtract(12, 'week').toISOString(),
     to: dayjs().endOf('week').subtract(1, 'week').toISOString(),
   },
-  filters: [
-    {
-      logicalName: 'from',
-    },
-    {
-      logicalName: 'to',
-    },
-  ],
   widgets: [
-    widgetChartLine,
-    widgetChartArea,
-    widgetChartBar,
-    widgetChartComposed,
-    widgetChartScatter,
-    widgetChartPie,
-    widgetChartRadar,
-    widgetChartOhlc,
-    widgetGrid,
     {
-      attributes: {},
-      defaultData: {},
-      title: 'Custom Widget',
-      rows: 4,
+      type: 'component',
+      rows: 2,
       columns: 4,
-      dataset: [],
-      content: {
-        type: 'custom',
-        commands: [],
-        Component: CustomWidget,
-      },
+      Component: WidgetChartLine,
+    },
+    {
+      type: 'component',
+      rows: 2,
+      columns: 4,
+      Component: WidgetChartArea,
+    },
+    {
+      type: 'component',
+      rows: 2,
+      columns: 4,
+      Component: WidgetChartBar,
+    },
+    {
+      type: 'component',
+      rows: 2,
+      columns: 4,
+      Component: WidgetChartComposed,
+    },
+    {
+      type: 'component',
+      rows: 2,
+      columns: 4,
+      Component: WidgetChartScatter,
+    },
+    {
+      type: 'component',
+      rows: 2,
+      columns: 4,
+      Component: WidgetChartPie,
+    },
+    {
+      type: 'component',
+      rows: 2,
+      columns: 4,
+      Component: WidgetChartRadar,
+    },
+    {
+      type: 'component',
+      rows: 2,
+      columns: 4,
+      Component: WidgetChartOhlc,
+    },
+    {
+      type: 'component',
+      rows: 2,
+      columns: 4,
+      Component: CustomWidget,
     },
   ],
 };

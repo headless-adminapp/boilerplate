@@ -1,1 +1,1 @@
-export { insightExpereince } from './config';
+export { config } from './config';

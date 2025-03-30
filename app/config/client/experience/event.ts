@@ -7,7 +7,7 @@ const EventIcon = bundleLazyIcon('Book24Regular', 'Book24Regular');
 const builder = new SchemaExperienceBuilder(eventSchema);
 
 export const eventSchemaExperience = builder.defineExperience({
-  icon: EventIcon,
+  Icon: EventIcon,
   views: [
     {
       id: 'default',

@@ -1,5 +1,5 @@
 import {
-  NavPageGroupArea,
+  NavPageSection,
   PageType,
 } from '@headless-adminapp/core/experience/app';
 import { bundleLazyIcon } from '@headless-adminapp/icons-fluent/lazyIcon';
@@ -18,48 +18,43 @@ const CalendarIcon = bundleLazyIcon(
   'CalendarClock24Filled'
 );
 
-export const navPageGroupAreas: NavPageGroupArea[] = [
+export const navPageGroupAreas: NavPageSection[] = [
   {
-    label: 'Main',
-    groups: [
+    label: '',
+    hideLabel: true,
+    items: [
       {
-        label: '',
-        hideLabel: true,
-        items: [
-          {
-            type: PageType.Custom,
-            label: 'Welcome',
-            link: '/welcome',
-            icon: WelcomeIcon,
-          },
-          {
-            type: PageType.Custom,
-            label: 'Dashboard',
-            link: '/dashboard',
-            icon: DashboardIcon,
-          },
-          {
-            type: PageType.Custom,
-            label: 'Board',
-            link: '/board',
-            icon: BoardIcon,
-          },
-          {
-            type: PageType.Custom,
-            label: 'Calendar',
-            link: '/calendar',
-            icon: CalendarIcon,
-          },
-        ],
+        type: PageType.Custom,
+        label: 'Welcome',
+        link: '/welcome',
+        Icon: WelcomeIcon,
       },
       {
-        label: 'Data',
-        items: [
-          {
-            type: PageType.EntityView,
-            logicalName: 'events',
-          },
-        ],
+        type: PageType.Custom,
+        label: 'Dashboard',
+        link: '/dashboard',
+        Icon: DashboardIcon,
+      },
+      {
+        type: PageType.Custom,
+        label: 'Board',
+        link: '/board',
+        Icon: BoardIcon,
+      },
+      {
+        type: PageType.Custom,
+        label: 'Calendar',
+        link: '/calendar',
+        Icon: CalendarIcon,
+      },
+    ],
+  },
+  {
+    label: 'Data',
+    items: [
+      {
+        type: PageType.EntityView,
+        logicalName: 'events',
       },
     ],
   },

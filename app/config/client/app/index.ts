@@ -20,6 +20,7 @@ export const appExperience: AppExperience = {
   ],
   quickActionItems: [
     {
+      type: 'icon',
       label: 'Settings',
       icon: iconSet.Settings,
       link: '/settings',
