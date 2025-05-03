@@ -1,8 +1,8 @@
 'use client';
 
 import { config } from './config';
-import { PageInsights } from '@headless-adminapp/fluent/PageInsights';
+import { PageInsight } from '@headless-adminapp/fluent/PageInsight';
 
 export default function DashboardPage() {
-  return <PageInsights config={config} />;
+  return <PageInsight config={config} />;
 }

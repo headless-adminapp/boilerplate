@@ -1,12 +1,12 @@
 import { dataService } from '@/app/config/client/dataService';
 import { Event } from '@/app/config/schema/event';
 import { CalendarEventsResolverFn } from '@headless-adminapp/app/calendar/types';
-import { Condition } from '@headless-adminapp/core/transport';
+import { Filter } from '@headless-adminapp/core/transport';
 
 export const calendarEventsResolver: CalendarEventsResolverFn = async (
   options
 ) => {
-  const conditions: Condition<string>[] = [
+  const conditions: Filter['conditions'] = [
     {
       field: 'end',
       operator: 'on-or-after',
